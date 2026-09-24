@@ -13,4 +13,97 @@
   }); // Fim do document.addEventListener
 
 
+
+
+
+  function chamarControllerPost() {
+
+    // Controller URL
+    const url = "https://script.google.com/macros/s/AKfycbyPFX7snSvFsZqCx3YbgPe_wla78IyTE2gDE2jWKbw3nGFOd1dcJS4Q-c0FTIa3lFmX/exec";
+    
+    
+    // Dados que serão enviados para o serviço
+    const body = {
+      nomeRecurso: "Autenticacao"
+    };
+
+    // headers
+    const myHeaders = new Headers();
+    //myHeaders.append("Content-Type", "application/json");
+    myHeaders.append("Content-Type", "text/plain;charset=utf-8");
+  
+    // Configuração da requisição REST POST
+    let options = {
+      method: "post",
+      //mode: "cors",
+      redirect: "follow",
+      headers: myHeaders,
+      body: JSON.stringify(body)
+    };    
+
+
+    fetch( url, options )
+
+        .then((data) => {
+            if (data.ok) {
+                return data.json();
+            }
+            throw data.statusText;
+        })
+
+        .then((data) => {
+            document.getElementById("div_controller_post").innerHTML = "Controller Ok";
+        })
+
+        .catch((error) => {       
+            document.getElementById("div_controller_post").innerHTML = "Controller Error - " + error;
+            console.error(error);
+        });
+
+  } // Fim da função chamarControllerPost
+
+
+
+
+  function chamarControllerGet() {
+
+    // Controller URL
+    const url = "https://script.google.com/macros/s/AKfycbyPFX7snSvFsZqCx3YbgPe_wla78IyTE2gDE2jWKbw3nGFOd1dcJS4Q-c0FTIa3lFmX/exec";
+    
+    
+    // Dados que serão enviados para o serviço
+    const params = new URLSearchParams();
+    params.append("nomeRecurso", "Autenticacao");    
+
+  
+    // Configuração da requisição REST POST
+    let options = {
+      method: "get",
+      //mode: "cors",
+      redirect: "follow"
+    };    
+
+
+    //fetch( url + `?${params}`, options )
+    fetch( url + `?${params}`,  options )
+
+        .then((data) => {
+            if (data.ok) {
+                return data.json();
+            }
+            throw data.statusText;
+        })
+
+        .then((data) => {
+            document.getElementById("div_controller_get").innerHTML = "Controller Ok";
+        })
+
+        .catch((error) => {       
+            document.getElementById("div_controller_get").innerHTML = "Controller Error - " + error;
+            console.error(error);
+        });
+
+  } // Fim da função chamarControllerGet 
+
+
 </script>
