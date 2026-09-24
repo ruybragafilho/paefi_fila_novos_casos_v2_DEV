@@ -41,7 +41,7 @@ function doGet(e) {
 
 
     // Fluxo de sucesso - insere novo cidadão e retorna o resultado    
-    const cpf = payload.nomeRecurso;
+    const nomeRecurso = payload.nomeRecurso;
 
 
     return responderJson({
