@@ -21,7 +21,7 @@ Como salvar o Token (Interface do Editor)
   5) Clique em Salvar propriedades do script
 
 */
-
+/*
 
 function doPost(e) {
 
@@ -57,7 +57,7 @@ function doPost(e) {
   }
 }
 
-
+*/
 
 
 

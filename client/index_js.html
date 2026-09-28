@@ -13,13 +13,13 @@
   }); // Fim do document.addEventListener
 
 
-
+/*
 
 
   function chamarControllerPost() {
 
     // Controller URL
-    const url = "https://script.google.com/macros/s/AKfycbyPFX7snSvFsZqCx3YbgPe_wla78IyTE2gDE2jWKbw3nGFOd1dcJS4Q-c0FTIa3lFmX/exec";
+    const url = "https://script.google.com/macros/s/AKfycbxgbJq0XEdW71LY9hF3GuatIz6TqRVE4NTm-fn0D0SWm9DcP6ugee9dXyf8ZnpMuSit/exec";
     
     
     // Dados que serão enviados para o serviço
@@ -62,36 +62,39 @@
 
   } // Fim da função chamarControllerPost
 
-
+*/
 
 
   function chamarControllerGet() {
 
     // Controller URL
-    const url = "https://script.google.com/macros/s/AKfycbyPFX7snSvFsZqCx3YbgPe_wla78IyTE2gDE2jWKbw3nGFOd1dcJS4Q-c0FTIa3lFmX/exec";
+    const url = "https://script.google.com/macros/s/AKfycbxgbJq0XEdW71LY9hF3GuatIz6TqRVE4NTm-fn0D0SWm9DcP6ugee9dXyf8ZnpMuSit/exec";
     
     
     // Dados que serão enviados para o serviço
-    const params = new URLSearchParams();
-    params.append("nomeRecurso", "Autenticacao");    
+    //const params = new URLSearchParams();
+    //params.append("nomeRecurso", "Autenticacao");    
 
   
     // Configuração da requisição REST POST
-    let options = {
-      method: "get",
-      //mode: "cors",
-      redirect: "follow"
-    };    
+//    let options = {
+//      method: "get",
+//      //mode: "cors",
+//      redirect: "follow"
+//    };    
 
 
     //fetch( url + `?${params}`, options )
-    fetch( url + `?${params}`,  options )
+    //fetch( url + `?${params}` )
+    fetch( url + "?nomeRecurso=Autenticacao" )
 
         .then((data) => {
-            if (data.ok) {
-                return data.json();
-            }
-            throw data.statusText;
+//            if (data.ok) {
+//                return data.json();
+//            }
+//            throw data.statusText;
+              console.log( data );   
+              return data;
         })
 
         .then((data) => {

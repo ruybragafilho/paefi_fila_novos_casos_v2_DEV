@@ -25,6 +25,16 @@ Como salvar o Token (Interface do Editor)
 
 function doGet(e) {
 
+
+    return responderJson({
+      status: "sucesso",
+      mensagem: "GET -  - Controller!",      
+      nomeRecurso: nomeRecurso
+    });
+
+
+/*
+
   try {
 
     // Verifica se há conteúdo no corpo da requisição
@@ -56,6 +66,8 @@ function doGet(e) {
     return responderJson({ status: "erro", mensagem: "Erro ao processar requisição: " + error.message });
 
   }
+
+*/  
 }
 
 
