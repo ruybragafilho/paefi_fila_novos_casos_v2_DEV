@@ -42,7 +42,7 @@ function doPost(e) {
 
     // Fluxo feliz - Responde a requisição    
     return responderJson({
-      status: "sucesso",
+      status: "success",
       mensagem: "POST - Controller!",      
       nomeRecurso: nomeRecurso
     });

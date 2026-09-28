@@ -43,7 +43,7 @@ function doGet(e) {
 
     // Fluxo feliz - Responde a requisição    
     return responderJson({
-      status: "sucesso",
+      status: "success",
       mensagem: "GET - Controller!" ,      
       nomeRecurso: nomeRecurso
     });

@@ -24,7 +24,9 @@
     
     // Dados que serão enviados para o serviço
     const body = {
-      nomeRecurso: "Autenticacao"
+      nomeRecurso: "Autenticator"
+      //nomeRecurso: "Entities"
+      //nomeRecurso: "Queue"
     };
   
     // Configuração da requisição REST POST
@@ -70,7 +72,9 @@
     
     // Dados que serão enviados para o serviço
     const params = new URLSearchParams();
-    params.append("nomeRecurso", "Autenticacao");    
+    params.append("nomeRecurso", "Autenticator");    
+    //params.append("nomeRecurso", "Entities");    
+    //params.append("nomeRecurso", "Queue");    
 
     // Chamada get no controller
     fetch( url + `?${params}` )
