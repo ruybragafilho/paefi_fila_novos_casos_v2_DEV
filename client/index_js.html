@@ -13,7 +13,7 @@
   }); // Fim do document.addEventListener
 
 
-/*
+
 
 
   function chamarControllerPost() {
@@ -26,18 +26,10 @@
     const body = {
       nomeRecurso: "Autenticacao"
     };
-
-    // headers
-    const myHeaders = new Headers();
-    //myHeaders.append("Content-Type", "application/json");
-    myHeaders.append("Content-Type", "text/plain;charset=utf-8");
   
     // Configuração da requisição REST POST
     let options = {
       method: "post",
-      //mode: "cors",
-      redirect: "follow",
-      headers: myHeaders,
       body: JSON.stringify(body)
     };    
 
@@ -47,12 +39,17 @@
         .then((data) => {
             if (data.ok) {
                 return data.json();
+                //return data;
             }
+            console.log( data.statusText );
             throw data.statusText;
         })
 
         .then((data) => {
             document.getElementById("div_controller_post").innerHTML = "Controller Ok";
+            console.log( "DATA BEGIN" )
+            console.log( data );   
+            console.log( "DATA END" )            
         })
 
         .catch((error) => {       
@@ -62,7 +59,7 @@
 
   } // Fim da função chamarControllerPost
 
-*/
+
 
 
   function chamarControllerGet() {
