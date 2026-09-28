@@ -72,38 +72,31 @@
     
     
     // Dados que serão enviados para o serviço
-    //const params = new URLSearchParams();
-    //params.append("nomeRecurso", "Autenticacao");    
+    const params = new URLSearchParams();
+    params.append("nomeRecurso", "Autenticacao");    
 
-  
-    // Configuração da requisição REST POST
-//    let options = {
-//      method: "get",
-//      //mode: "cors",
-//      redirect: "follow"
-//    };    
-
-
-    //fetch( url + `?${params}`, options )
-    //fetch( url + `?${params}` )
-    fetch( url + "?nomeRecurso=Autenticacao" )
-
+    // Chamada get no controller
+    fetch( url + `?${params}` )
+    
         .then((data) => {
-//            if (data.ok) {
-//                return data.json();
-//            }
-//            throw data.statusText;
-              console.log( data );   
-              return data;
+          if (data.ok) {
+            return data.json();
+            //return data;
+          }
+          console.log( data.statusText );
+          throw data.statusText;              
         })
 
         .then((data) => {
-            document.getElementById("div_controller_get").innerHTML = "Controller Ok";
+          document.getElementById("div_controller_get").innerHTML = "Controller Ok";
+          console.log( "DATA BEGIN" )
+          console.log( data );   
+          console.log( "DATA END" )
         })
 
         .catch((error) => {       
-            document.getElementById("div_controller_get").innerHTML = "Controller Error - " + error;
-            console.error(error);
+          document.getElementById("div_controller_get").innerHTML = "Controller Error - " + error;
+          console.error(error);
         });
 
   } // Fim da função chamarControllerGet 
