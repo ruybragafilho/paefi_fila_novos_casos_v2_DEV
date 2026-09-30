@@ -21,13 +21,35 @@
 
     <br><hr><br>
 
-    <button id="bt_controller_post" type="button" onclick="chamarControllerPost()">CHAMAR CONTROLLER POST</button><br><br>
-    <div id="div_controller_post"></div>
+    <h3>Chamada Authenticator</h3><br>
 
-    <br><hr><br> 
+    <button id="bt_controller_post_authenticator" type="button" onclick="chamarControllerPost('AUTHENTICATOR')">CHAMAR CONTROLLER POST - AUTHENTICATOR</button><br><br>
+    <div id="div_controller_post_authenticator"></div>
+    <br>
+    <button id="bt_controller_get_authenticator" type="button" onclick="chamarControllerGet('AUTHENTICATOR')">CHAMAR CONTROLLER GET - AUTHENTICATOR</button><br><br>
+    <div id="div_controller_get_authenticator"></div>
 
-    <button id="bt_controller_get" type="button" onclick="chamarControllerGet()">CHAMAR CONTROLLER GET</button><br><br>
-    <div id="div_controller_get"></div>
+    <br><hr><br>
+
+    <h3>Chamada Entities</h3><br>
+
+    <button id="bt_controller_post_entities" type="button" onclick="chamarControllerPost('ENTITIES')">CHAMAR CONTROLLER POST - ENTITIES</button><br><br>
+    <div id="div_controller_post_entities"></div>
+    <br>
+    <button id="bt_controller_get_entities" type="button" onclick="chamarControllerGet('ENTITIES')">CHAMAR CONTROLLER GET - ENTITIES</button><br><br>
+    <div id="div_controller_get_entities"></div>
+
+    <br><hr><br>
+
+    <h3>Chamada Queue</h3><br>
+
+    <button id="bt_controller_post_queue" type="button" onclick="chamarControllerPost('QUEUE')">CHAMAR CONTROLLER POST - QUEUE</button><br><br>
+    <div id="div_controller_post_queue"></div>
+    <br>
+    <button id="bt_controller_get_queue" type="button" onclick="chamarControllerGet('QUEUE')">CHAMAR CONTROLLER GET - QUEUE</button><br><br>
+    <div id="div_controller_get_queue"></div>
+
+
 
     <?!= include("index_js"); ?>
 

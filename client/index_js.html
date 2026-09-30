@@ -16,7 +16,7 @@
 
 
 
-  function chamarControllerPost() {
+  function chamarControllerPost( nomeRecurso ) {
 
     // Controller URL
     const url = "https://script.google.com/macros/s/AKfycbxgbJq0XEdW71LY9hF3GuatIz6TqRVE4NTm-fn0D0SWm9DcP6ugee9dXyf8ZnpMuSit/exec";
@@ -24,9 +24,7 @@
     
     // Dados que serão enviados para o serviço
     const body = {
-      nomeRecurso: "Authenticator"
-      //nomeRecurso: "Entities"
-      //nomeRecurso: "Queue"
+      nomeRecurso: nomeRecurso
     };
   
     // Configuração da requisição REST POST
@@ -36,6 +34,11 @@
     };    
 
 
+    // Seleciona a div resposta apropriada 
+    let idDiv = selectDiv( nomeRecurso );
+
+
+    // Chama o método POST do controller
     fetch( url, options )
 
         .then((data) => {
@@ -48,14 +51,14 @@
         })
 
         .then((data) => {
-            document.getElementById("div_controller_post").innerHTML = "Controller Ok";
+            document.getElementById(idDiv).innerHTML = "Controller POST Ok - " + data.nomeRecurso;
             console.log( "DATA BEGIN" )
             console.log( data );   
             console.log( "DATA END" )            
         })
 
         .catch((error) => {       
-            document.getElementById("div_controller_post").innerHTML = "Controller Error - " + error;
+            document.getElementById(idDiv).innerHTML = "Controller POST Error - " + error;
             console.error(error);
         });
 
@@ -64,7 +67,7 @@
 
 
 
-  function chamarControllerGet() {
+  function chamarControllerGet( nomeRecurso ) {
 
     // Controller URL
     const url = "https://script.google.com/macros/s/AKfycbxgbJq0XEdW71LY9hF3GuatIz6TqRVE4NTm-fn0D0SWm9DcP6ugee9dXyf8ZnpMuSit/exec";
@@ -72,11 +75,14 @@
     
     // Dados que serão enviados para o serviço
     const params = new URLSearchParams();
-    params.append("nomeRecurso", "Authenticator");    
-    //params.append("nomeRecurso", "Entities");    
-    //params.append("nomeRecurso", "Queue");    
+    params.append("nomeRecurso", nomeRecurso);   
+    
+    
+    // Seleciona a div resposta apropriada 
+    let idDiv = selectDiv( nomeRecurso );
 
-    // Chamada get no controller
+
+    // Chama o método GET do controller
     fetch( url + `?${params}` )
     
         .then((data) => {
@@ -89,18 +95,40 @@
         })
 
         .then((data) => {
-          document.getElementById("div_controller_get").innerHTML = "Controller Ok";
+          document.getElementById(idDiv).innerHTML = "Controller GET Ok - " + data.nomeRecurso;
           console.log( "DATA BEGIN" )
           console.log( data );   
           console.log( "DATA END" )
         })
 
         .catch((error) => {       
-          document.getElementById("div_controller_get").innerHTML = "Controller Error - " + error;
+          document.getElementById(idDiv).innerHTML = "Controller GET Error - " + error;
           console.error(error);
         });
 
   } // Fim da função chamarControllerGet 
+
+
+
+  function selectDiv( nomeRecurso ) {
+
+    // Seleciona a div resposta apropriada 
+    let idDiv;
+    switch( nomeRecurso ) {
+      case "AUTHENTICATOR": idDiv = "div_controller_get_authenticator";
+                            break;
+      case "ENTITIES":      idDiv = "div_controller_get_entities";
+                            break;                            
+      case "QUEUE":         idDiv = "div_controller_get_queue";
+                            break;  
+      default:  console.log( "Client chamarControllerGet - PARÂMETRO INVÁLIDO" );                          
+                return false;
+    }
+
+    return idDiv;
+
+  }
+
 
 
 </script>
