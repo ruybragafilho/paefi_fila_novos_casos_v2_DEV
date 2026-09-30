@@ -43,7 +43,7 @@ function doPost(e) {
     // Fluxo feliz - Responde a requisição    
     return responderJson({
       status: "success",
-      mensagem: "POST - Queue!",      
+      mensagem: "Queue POST Ok",      
       nomeRecurso: nomeRecurso
     });
     

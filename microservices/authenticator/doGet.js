@@ -44,7 +44,7 @@ function doGet(e) {
     // Fluxo feliz - Responde a requisição    
     return responderJson({
       status: "success",
-      mensagem: "GET - Authenticator!" ,      
+      mensagem: "Authenticator GET Ok" ,      
       nomeRecurso: nomeRecurso
     });
 

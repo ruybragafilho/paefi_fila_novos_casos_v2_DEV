@@ -41,10 +41,14 @@ function doGet(e) {
     const nomeRecurso =  e.parameter.nomeRecurso;
 
 
+    // Chama o serviceRouter que irá se comunicar com o microserviço apropriado
+    let retorno = serviceRoute( nomeRecurso );    
+
+
     // Fluxo feliz - Responde a requisição    
     return responderJson({
       status: "success",
-      mensagem: "GET - Controller!" ,      
+      mensagem: retorno,      
       nomeRecurso: nomeRecurso
     });
 

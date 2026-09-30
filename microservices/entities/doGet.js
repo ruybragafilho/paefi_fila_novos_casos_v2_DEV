@@ -44,7 +44,7 @@ function doGet(e) {
     // Fluxo feliz - Responde a requisição    
     return responderJson({
       status: "success",
-      mensagem: "GET - Entities!" ,      
+      mensagem: "Entities GET Ok" ,      
       nomeRecurso: nomeRecurso
     });
 

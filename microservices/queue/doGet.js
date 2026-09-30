@@ -44,7 +44,7 @@ function doGet(e) {
     // Fluxo feliz - Responde a requisição    
     return responderJson({
       status: "success",
-      mensagem: "GET - Queue!" ,      
+      mensagem: "Queue GET Ok" ,      
       nomeRecurso: nomeRecurso
     });
 

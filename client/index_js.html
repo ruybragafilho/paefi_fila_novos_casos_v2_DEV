@@ -15,6 +15,49 @@
 
 
 
+  function chamarControllerGet( nomeRecurso ) {
+
+    // Controller URL
+    const url = "https://script.google.com/macros/s/AKfycbxgbJq0XEdW71LY9hF3GuatIz6TqRVE4NTm-fn0D0SWm9DcP6ugee9dXyf8ZnpMuSit/exec";
+    
+    
+    // Dados que serão enviados para o serviço
+    const params = new URLSearchParams();
+    params.append("nomeRecurso", nomeRecurso+"_GET");   
+    
+    
+    // Seleciona a div resposta apropriada 
+    let idDiv = selectDiv( nomeRecurso );
+
+
+    // Chama o método GET do controller
+    fetch( url + `?${params}` )
+    
+        .then((data) => {
+          if (data.ok) {
+            return data.json();
+            //return data;
+          }
+          console.log( data.statusText );
+          throw data.statusText;              
+        })
+
+        .then((data) => {
+          document.getElementById(idDiv).innerHTML = "Client GET Ok - " + data.mensagem;
+          console.log( "DATA BEGIN" )
+          console.log( data );   
+          console.log( "DATA END" )
+        })
+
+        .catch((error) => {       
+          document.getElementById(idDiv).innerHTML = "Client GET Error - " + error;
+          console.error(error);
+        });
+
+  } // Fim da função chamarControllerGet 
+
+
+
 
   function chamarControllerPost( nomeRecurso ) {
 
@@ -24,7 +67,7 @@
     
     // Dados que serão enviados para o serviço
     const body = {
-      nomeRecurso: nomeRecurso
+      nomeRecurso: nomeRecurso+"_POST"
     };
   
     // Configuração da requisição REST POST
@@ -51,14 +94,14 @@
         })
 
         .then((data) => {
-            document.getElementById(idDiv).innerHTML = "Controller POST Ok - " + data.nomeRecurso;
+            document.getElementById(idDiv).innerHTML = "Client POST Ok - " + data.mensagem;
             console.log( "DATA BEGIN" )
             console.log( data );   
             console.log( "DATA END" )            
         })
 
         .catch((error) => {       
-            document.getElementById(idDiv).innerHTML = "Controller POST Error - " + error;
+            document.getElementById(idDiv).innerHTML = "Client POST Error - " + error;
             console.error(error);
         });
 
@@ -67,46 +110,32 @@
 
 
 
-  function chamarControllerGet( nomeRecurso ) {
+  function chamarAuthenticatorGET() {
+    chamarControllerGet('AUTHENTICATOR');
+  }
 
-    // Controller URL
-    const url = "https://script.google.com/macros/s/AKfycbxgbJq0XEdW71LY9hF3GuatIz6TqRVE4NTm-fn0D0SWm9DcP6ugee9dXyf8ZnpMuSit/exec";
-    
-    
-    // Dados que serão enviados para o serviço
-    const params = new URLSearchParams();
-    params.append("nomeRecurso", nomeRecurso);   
-    
-    
-    // Seleciona a div resposta apropriada 
-    let idDiv = selectDiv( nomeRecurso );
+  function chamarAuthenticatorPOST() {
+    chamarControllerPost('AUTHENTICATOR');
+  }  
 
 
-    // Chama o método GET do controller
-    fetch( url + `?${params}` )
-    
-        .then((data) => {
-          if (data.ok) {
-            return data.json();
-            //return data;
-          }
-          console.log( data.statusText );
-          throw data.statusText;              
-        })
+  function chamarEntitiesGET() {
+    chamarControllerGet('ENTITIES');
+  }
 
-        .then((data) => {
-          document.getElementById(idDiv).innerHTML = "Controller GET Ok - " + data.nomeRecurso;
-          console.log( "DATA BEGIN" )
-          console.log( data );   
-          console.log( "DATA END" )
-        })
+  function chamarEntitiesPOST() {
+    chamarControllerPost('ENTITIES');
+  }    
 
-        .catch((error) => {       
-          document.getElementById(idDiv).innerHTML = "Controller GET Error - " + error;
-          console.error(error);
-        });
 
-  } // Fim da função chamarControllerGet 
+  function chamarQueueGET() {
+    chamarControllerGet('QUEUE');
+  }
+
+  function chamarQueuePOST() {
+    chamarControllerPost('QUEUE');
+  }  
+
 
 
 
@@ -115,11 +144,11 @@
     // Seleciona a div resposta apropriada 
     let idDiv;
     switch( nomeRecurso ) {
-      case "AUTHENTICATOR": idDiv = "div_controller_get_authenticator";
+      case "AUTHENTICATOR": idDiv = "div_authenticator";
                             break;
-      case "ENTITIES":      idDiv = "div_controller_get_entities";
+      case "ENTITIES":      idDiv = "div_entities";
                             break;                            
-      case "QUEUE":         idDiv = "div_controller_get_queue";
+      case "QUEUE":         idDiv = "div_queue";
                             break;  
       default:  console.log( "Client chamarControllerGet - PARÂMETRO INVÁLIDO" );                          
                 return false;

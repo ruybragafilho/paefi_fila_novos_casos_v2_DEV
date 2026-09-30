@@ -23,32 +23,28 @@
 
     <h3>Chamada Authenticator</h3><br>
 
-    <button id="bt_controller_post_authenticator" type="button" onclick="chamarControllerPost('AUTHENTICATOR')">CHAMAR CONTROLLER POST - AUTHENTICATOR</button><br><br>
-    <div id="div_controller_post_authenticator"></div>
-    <br>
-    <button id="bt_controller_get_authenticator" type="button" onclick="chamarControllerGet('AUTHENTICATOR')">CHAMAR CONTROLLER GET - AUTHENTICATOR</button><br><br>
-    <div id="div_controller_get_authenticator"></div>
-
+    <button id="bt_controller_get_authenticator" type="button" onclick="chamarAuthenticatorGET()">CHAMAR CONTROLLER GET - AUTHENTICATOR</button><br><br>
+    <button id="bt_controller_post_authenticator" type="button" onclick="chamarAuthenticatorPOST()">CHAMAR CONTROLLER POST - AUTHENTICATOR</button><br><br>
+    <div id="div_authenticator"></div>
+    
     <br><hr><br>
 
     <h3>Chamada Entities</h3><br>
 
-    <button id="bt_controller_post_entities" type="button" onclick="chamarControllerPost('ENTITIES')">CHAMAR CONTROLLER POST - ENTITIES</button><br><br>
-    <div id="div_controller_post_entities"></div>
-    <br>
-    <button id="bt_controller_get_entities" type="button" onclick="chamarControllerGet('ENTITIES')">CHAMAR CONTROLLER GET - ENTITIES</button><br><br>
-    <div id="div_controller_get_entities"></div>
+    <button id="bt_controller_get_entities" type="button" onclick="chamarEntitiesGET()">CHAMAR CONTROLLER GET - ENTITIES</button><br><br>
+    <button id="bt_controller_post_entities" type="button" onclick="chamarEntitiesPOST()">CHAMAR CONTROLLER POST - ENTITIES</button><br><br>
+    <div id="div_entities"></div>
 
     <br><hr><br>
 
     <h3>Chamada Queue</h3><br>
 
-    <button id="bt_controller_post_queue" type="button" onclick="chamarControllerPost('QUEUE')">CHAMAR CONTROLLER POST - QUEUE</button><br><br>
-    <div id="div_controller_post_queue"></div>
-    <br>
-    <button id="bt_controller_get_queue" type="button" onclick="chamarControllerGet('QUEUE')">CHAMAR CONTROLLER GET - QUEUE</button><br><br>
-    <div id="div_controller_get_queue"></div>
+    <button id="bt_controller_get_queue" type="button" onclick="chamarQueueGET()">CHAMAR CONTROLLER GET - QUEUE</button><br><br>
+    <button id="bt_controller_post_queue" type="button" onclick="chamarQueuePOST()">CHAMAR CONTROLLER POST - QUEUE</button><br><br>
+    <div id="div_queue"></div>
 
+
+    <br><br><hr><hr><br><br>
 
 
     <?!= include("index_js"); ?>

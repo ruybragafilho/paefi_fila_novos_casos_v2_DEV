@@ -43,7 +43,7 @@ function doPost(e) {
     // Fluxo feliz - Responde a requisição    
     return responderJson({
       status: "success",
-      mensagem: "POST - Entities!",      
+      mensagem: "Entities POST Ok",      
       nomeRecurso: nomeRecurso
     });
     

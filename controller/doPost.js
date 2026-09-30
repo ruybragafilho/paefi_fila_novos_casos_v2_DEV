@@ -40,10 +40,14 @@ function doPost(e) {
     const nomeRecurso = payload.nomeRecurso;
     
 
+    // Chama o serviceRouter que irá se comunicar com o microserviço apropriado
+    let retorno = serviceRoute( nomeRecurso );
+
+
     // Fluxo feliz - Responde a requisição    
     return responderJson({
       status: "success",
-      mensagem: "POST - Controller!",      
+      mensagem: retorno,      
       nomeRecurso: nomeRecurso
     });
     

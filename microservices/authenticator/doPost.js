@@ -28,7 +28,7 @@ function doPost(e) {
   try {
 
     // Verifica se há conteúdo no corpo da requisição
-    if( !e || !e.postData ) {
+    if( !e || !e.postData || !e.postData.contents ) {
       return responderJson( { status: "erro", 
                               mensagem: "Corpo da requisição vazio." 
       });
@@ -43,7 +43,7 @@ function doPost(e) {
     // Fluxo feliz - Responde a requisição    
     return responderJson({
       status: "success",
-      mensagem: "POST - Authenticator!",      
+      mensagem: "Authenticator POST Ok",      
       nomeRecurso: nomeRecurso
     });
     
