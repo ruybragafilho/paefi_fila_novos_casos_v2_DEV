@@ -1,6 +1,3 @@
-function myFunction() {
-  
-}
 "use strict";
 
 
@@ -31,23 +28,21 @@ function doPost(e) {
   try {
 
     // Verifica se há conteúdo no corpo da requisição
-    if( !e || !e.postData || !e.postData.contents ) {
+    if( !e || !e.postData ) {
       return responderJson( { status: "erro", 
                               mensagem: "Corpo da requisição vazio." 
       });
     }
 
 
-    // Converte o JSON recebido para um objeto JS
-    let payload  = JSON.parse( e.postData.contents );    
-
-
-    // Fluxo de sucesso - insere novo cidadão e retorna o resultado
+    // Lê e faz o parse do JSON enviado para o POST
+    const payload  = JSON.parse( e.postData.contents );    
     const nomeRecurso = payload.nomeRecurso;
-
     
+
+    // Fluxo feliz - Responde a requisição    
     return responderJson({
-      status: "sucesso",
+      status: "success",
       mensagem: "POST - Queue!",      
       nomeRecurso: nomeRecurso
     });

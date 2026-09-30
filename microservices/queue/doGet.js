@@ -25,7 +25,9 @@ Como salvar o Token (Interface do Editor)
 
 function doGet(e) {
 
+
   try {
+
 
     // Verifica se há conteúdo no corpo da requisição
     if( !e || !e.parameter ) {
@@ -35,28 +37,27 @@ function doGet(e) {
     }
 
 
-    // Converte o JSON recebido para um objeto JS
-    // let payload  = JSON.parse( e.parameter );    
-    let payload  = e.parameter;    
+    // Lê o parâmetro enviado para o GET
+    const nomeRecurso =  e.parameter.nomeRecurso;
 
 
-    // Fluxo de sucesso - insere novo cidadão e retorna o resultado    
-    const cpf = payload.nomeRecurso;
-
-
+    // Fluxo feliz - Responde a requisição    
     return responderJson({
-      status: "sucesso",
-      mensagem: "GET -  - Queue!",      
+      status: "success",
+      mensagem: "GET - Queue!" ,      
       nomeRecurso: nomeRecurso
     });
-    
+
 
   } catch (error) {
 
-    return responderJson({ status: "erro", mensagem: "Erro ao processar requisição: " + error.message });
+    return responderJson( { status: "erro", 
+                            mensagem: "Erro ao processar requisição: " + error.message } );
 
-  }
-}
+  } // Fim do try-catch
+
+
+} // Fim da função doGet
 
 
 
