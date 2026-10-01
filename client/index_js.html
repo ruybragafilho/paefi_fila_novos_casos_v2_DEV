@@ -3,6 +3,9 @@
   "use strict";
 
 
+  const url = "https://script.google.com/macros/s/AKfycbxgbJq0XEdW71LY9hF3GuatIz6TqRVE4NTm-fn0D0SWm9DcP6ugee9dXyf8ZnpMuSit/exec";
+
+
   /**
    * Inicializa os sistema ao carregar a página index.html
    */
@@ -14,12 +17,10 @@
 
 
 
-
+  /**
+   * Utiliza a função HTTP GET para se comunicar com o CONTROLLER
+   */
   function chamarControllerGet( nomeRecurso ) {
-
-    // Controller URL
-    const url = "https://script.google.com/macros/s/AKfycbxgbJq0XEdW71LY9hF3GuatIz6TqRVE4NTm-fn0D0SWm9DcP6ugee9dXyf8ZnpMuSit/exec";
-    
     
     // Dados que serão enviados para o serviço
     const params = new URLSearchParams();
@@ -58,12 +59,10 @@
 
 
 
-
+  /**
+   * Utiliza a função HTTP POST para se comunicar com o CONTROLLER
+   */
   function chamarControllerPost( nomeRecurso ) {
-
-    // Controller URL
-    const url = "https://script.google.com/macros/s/AKfycbxgbJq0XEdW71LY9hF3GuatIz6TqRVE4NTm-fn0D0SWm9DcP6ugee9dXyf8ZnpMuSit/exec";
-    
     
     // Dados que serão enviados para o serviço
     const body = {

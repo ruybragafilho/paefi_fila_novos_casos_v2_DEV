@@ -44,8 +44,8 @@ function serviceRoute( nomeRecurso ) {
 
 function chamarAuthenticatorGET() {
 
-  // Controller URL
-  const url = "https://script.google.com/macros/s/AKfycbyIeQWDsiHYqh_fhPwijCDJEDtlrgeH0GK1_NR2HpHEsBVUyOSiFUi20h2gwnD4tbjb/exec";
+  // Authenticator URL
+  const url = PropertiesService.getScriptProperties().getProperty('AUTHENTICATOR_URL');
     
   // Dados que serão enviados para o serviço
   const nomeRecurso = "AUTHENTICATOR"
@@ -95,8 +95,8 @@ function chamarAuthenticatorGET() {
 
 function chamarAuthenticatorPOST() {
 
-  // Controller URL
-  const url = "https://script.google.com/macros/s/AKfycbyIeQWDsiHYqh_fhPwijCDJEDtlrgeH0GK1_NR2HpHEsBVUyOSiFUi20h2gwnD4tbjb/exec";
+  // Authenticator URL
+  const url = PropertiesService.getScriptProperties().getProperty('AUTHENTICATOR_URL');
     
   // Dados que serão enviados para o serviço
   const body = {
@@ -156,8 +156,8 @@ function chamarAuthenticatorPOST() {
 
 function chamarEntitiesGET() {
 
-  // Controller URL
-  const url = "https://script.google.com/macros/s/AKfycbzMjxvLXWVK6y2rKmCWuFM-WV94Vaj0RpWhUm2P3orL8VGlQVJsjSNbnZmkPE4EcfbAww/exec";
+  // Entities URL
+  const url = PropertiesService.getScriptProperties().getProperty('ENTITIES_URL');
     
   // Dados que serão enviados para o serviço
   const nomeRecurso = "ENTITIES"
@@ -208,8 +208,8 @@ function chamarEntitiesGET() {
     
 function chamarEntitiesPOST() {
 
-  // Controller URL
-  const url = "https://script.google.com/macros/s/AKfycbzMjxvLXWVK6y2rKmCWuFM-WV94Vaj0RpWhUm2P3orL8VGlQVJsjSNbnZmkPE4EcfbAww/exec";
+  // Entities URL
+  const url = PropertiesService.getScriptProperties().getProperty('ENTITIES_URL');
     
   // Dados que serão enviados para o serviço
   const body = {
@@ -269,8 +269,8 @@ function chamarEntitiesPOST() {
                                
 function chamarQueueGET() {
 
-  // Controller URL
-  const url = "https://script.google.com/macros/s/AKfycbzUdWf1RJxSyG_6MC4Bkx7m-wWvzLF90AWpcQb8GZr4JROQBYPqYFCmcH5XszZtmlzS/exec";
+  // Queue URL
+  const url = PropertiesService.getScriptProperties().getProperty('QUEUE_URL');
     
   // Dados que serão enviados para o serviço
   const nomeRecurso = "QUEUE"
@@ -320,10 +320,9 @@ function chamarQueueGET() {
     
 function chamarQueuePOST() {
 
-    // Controller URL
-    const url = "https://script.google.com/macros/s/AKfycbzUdWf1RJxSyG_6MC4Bkx7m-wWvzLF90AWpcQb8GZr4JROQBYPqYFCmcH5XszZtmlzS/exec";
-    
-    
+  // Queue URL
+  const url = PropertiesService.getScriptProperties().getProperty('QUEUE_URL');
+
   // Dados que serão enviados para o serviço
   const body = {
     nomeRecurso: "QUEUE"
