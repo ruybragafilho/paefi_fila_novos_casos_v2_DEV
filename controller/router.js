@@ -46,14 +46,20 @@ function chamarAuthenticatorGET() {
 
   // Authenticator URL
   const url = PropertiesService.getScriptProperties().getProperty('AUTHENTICATOR_URL');
-    
-  // Dados que serão enviados para o serviço
-  const nomeRecurso = "AUTHENTICATOR"
+
+  // API_TOKEN
+  const API_TOKEN = PropertiesService.getScriptProperties().getProperty('API_TOKEN');    
+
+  // Dados que serão enviados para o serviço    
+  const apitoken = `apitoken=${API_TOKEN}`;
+  const nomeRecurso = "nomeRecurso=AUTHENTICATOR";
+  const urlCompleta = url+"?"+apitoken+"&"+nomeRecurso;
+
 
   // Executa a chamada REST
   try {
 
-    let response = UrlFetchApp.fetch( url + `?nomeRecurso=${nomeRecurso}` ); // O método padrão é GET
+    let response = UrlFetchApp.fetch( urlCompleta ); // O método padrão é GET
     
     // Erro HTTP
     if( !response ) {
@@ -97,9 +103,13 @@ function chamarAuthenticatorPOST() {
 
   // Authenticator URL
   const url = PropertiesService.getScriptProperties().getProperty('AUTHENTICATOR_URL');
+
+  // API_TOKEN
+  const API_TOKEN = PropertiesService.getScriptProperties().getProperty('API_TOKEN');      
     
   // Dados que serão enviados para o serviço
   const body = {
+    apitoken: API_TOKEN,
     nomeRecurso: "AUTHENTICATOR"
   };
 
@@ -158,15 +168,20 @@ function chamarEntitiesGET() {
 
   // Entities URL
   const url = PropertiesService.getScriptProperties().getProperty('ENTITIES_URL');
-    
-  // Dados que serão enviados para o serviço
-  const nomeRecurso = "ENTITIES"
+  
+  // API_TOKEN
+  const API_TOKEN = PropertiesService.getScriptProperties().getProperty('API_TOKEN');    
+
+  // Dados que serão enviados para o serviço    
+  const apitoken = `apitoken=${API_TOKEN}`;
+  const nomeRecurso = "nomeRecurso=ENTITIES";
+  const urlCompleta = url+"?"+apitoken+"&"+nomeRecurso;
 
 
   // Executa a chamada REST
   try {
 
-    let response = UrlFetchApp.fetch( url + `?nomeRecurso=${nomeRecurso}` ); // O método padrão é GET
+    let response = UrlFetchApp.fetch( urlCompleta ); // O método padrão é GET
     
     // Erro HTTP
     if( !response ) {
@@ -210,9 +225,13 @@ function chamarEntitiesPOST() {
 
   // Entities URL
   const url = PropertiesService.getScriptProperties().getProperty('ENTITIES_URL');
+
+  // API_TOKEN
+  const API_TOKEN = PropertiesService.getScriptProperties().getProperty('API_TOKEN');      
     
   // Dados que serão enviados para o serviço
   const body = {
+    apitoken: API_TOKEN,
     nomeRecurso: "ENTITIES"
   };
 
@@ -272,13 +291,19 @@ function chamarQueueGET() {
   // Queue URL
   const url = PropertiesService.getScriptProperties().getProperty('QUEUE_URL');
     
-  // Dados que serão enviados para o serviço
-  const nomeRecurso = "QUEUE"
+  // API_TOKEN
+  const API_TOKEN = PropertiesService.getScriptProperties().getProperty('API_TOKEN');    
+
+  // Dados que serão enviados para o serviço    
+  const apitoken = `apitoken=${API_TOKEN}`;
+  const nomeRecurso = "nomeRecurso=QUEUE";
+  const urlCompleta = url+"?"+apitoken+"&"+nomeRecurso;
+
 
   // Executa a chamada REST
   try {
 
-    let response = UrlFetchApp.fetch( url + `?nomeRecurso=${nomeRecurso}` ); // O método padrão é GET
+    let response = UrlFetchApp.fetch( urlCompleta ); // O método padrão é GET
     
     // Erro HTTP
     if( !response ) {
@@ -323,8 +348,12 @@ function chamarQueuePOST() {
   // Queue URL
   const url = PropertiesService.getScriptProperties().getProperty('QUEUE_URL');
 
+  // API_TOKEN
+  const API_TOKEN = PropertiesService.getScriptProperties().getProperty('API_TOKEN');      
+    
   // Dados que serão enviados para o serviço
   const body = {
+    apitoken: API_TOKEN,
     nomeRecurso: "QUEUE"
   };
 

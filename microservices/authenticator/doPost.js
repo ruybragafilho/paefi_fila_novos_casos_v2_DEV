@@ -36,16 +36,31 @@ function doPost(e) {
 
 
     // Lê e faz o parse do JSON enviado para o POST
-    const payload  = JSON.parse( e.postData.contents );    
-    const nomeRecurso = payload.nomeRecurso;
-    
+    const payload  = JSON.parse( e.postData.contents ); 
+    const controllerToken = payload.apitoken;   
+    const nomeRecurso = payload.nomeRecurso;    
 
-    // Fluxo feliz - Responde a requisição    
-    return responderJson({
-      status: "success",
-      mensagem: "Authenticator POST Ok",      
-      nomeRecurso: nomeRecurso
-    });
+    // Realiza a autenticação do controller e em seguida o retorna
+    // a mensagem apropriada
+    if( ApiAuthentication.authenticateController( controllerToken ) ) {
+
+      // Fluxo feliz - Responde a requisição    
+      return responderJson({
+        status: "success",
+        mensagem: "Authenticator POST Ok" ,      
+        nomeRecurso: nomeRecurso
+      });
+
+    } else {
+     
+      // Erro - Controller TOKEN inválido
+      return responderJson({
+        status: "error",
+        mensagem: "Authenticator POST Error - API Authentication Fail!" ,      
+        nomeRecurso: nomeRecurso
+      });      
+
+    } // Fim do if-else
     
 
   } catch (error) {

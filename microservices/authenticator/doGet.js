@@ -36,17 +36,31 @@ function doGet(e) {
       });
     }
 
-
-    // Lê o parâmetro enviado para o GET
+    // Lê os parâmetros enviados para o GET
+    const controllerToken = e.parameter.apitoken;
     const nomeRecurso =  e.parameter.nomeRecurso;
 
+    // Realiza a autenticação do controller e em seguida o retorna
+    // a mensagem apropriada
+    if( ApiAuthentication.authenticateController( controllerToken ) ) {
 
-    // Fluxo feliz - Responde a requisição    
-    return responderJson({
-      status: "success",
-      mensagem: "Authenticator GET Ok" ,      
-      nomeRecurso: nomeRecurso
-    });
+      // Fluxo feliz - Responde a requisição    
+      return responderJson({
+        status: "success",
+        mensagem: "Authenticator GET Ok" ,      
+        nomeRecurso: nomeRecurso
+      });
+
+    } else {
+     
+      // Erro - Controller TOKEN inválido
+      return responderJson({
+        status: "error",
+        mensagem: "Authenticator GET Error - API Authentication Fail!" ,      
+        nomeRecurso: nomeRecurso
+      });      
+
+    } // Fim do if-else
 
 
   } catch (error) {
