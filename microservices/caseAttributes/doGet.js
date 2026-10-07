@@ -48,7 +48,7 @@ function doGet(e) {
       // Fluxo feliz - Responde a requisição    
       return responderJson({
         status: "success",
-        mensagem: "Entities GET Ok" ,      
+        mensagem: "Case Attributes GET Ok" ,      
         nomeRecurso: nomeRecurso
       });
 
@@ -57,7 +57,7 @@ function doGet(e) {
       // Erro - Controller TOKEN inválido
       return responderJson({
         status: "error",
-        mensagem: "Entities GET Error - API Authentication Fail!" ,      
+        mensagem: "Case Attributes GET Error - API Authentication Fail!" ,      
         nomeRecurso: nomeRecurso
       });      
 

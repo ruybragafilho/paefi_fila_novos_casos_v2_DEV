@@ -16,11 +16,11 @@ function serviceRoute( nomeRecurso ) {
       case "AUTHENTICATOR_POST": retorno = chamarAuthenticatorPOST();
                                  break;                              
   
-      case "ENTITIES_GET": retorno = chamarEntitiesGET();
-                           break;
+      case "CASE_ATTRIBUTES_GET": retorno = chamarCaseAttributesGET();
+                                  break;
       
-      case "ENTITIES_POST": retorno = chamarEntitiesPOST();
-                            break;                              
+      case "CASE_ATTRIBUTES_POST": retorno = chamarCaseAttributesPOST();
+                                   break;                              
                                  
       case "QUEUE_GET": retorno = chamarQueueGET();
                         break;
@@ -164,10 +164,10 @@ function chamarAuthenticatorPOST() {
     
 
 
-function chamarEntitiesGET() {
+function chamarCaseAttributesGET() {
 
   // Entities URL
-  const url = PropertiesService.getScriptProperties().getProperty('ENTITIES_URL');
+  const url = PropertiesService.getScriptProperties().getProperty('CASE_ATTRIBUTES_URL');
   
   // API_TOKEN
   const API_TOKEN = PropertiesService.getScriptProperties().getProperty('API_TOKEN');    
@@ -221,10 +221,10 @@ function chamarEntitiesGET() {
     
 
     
-function chamarEntitiesPOST() {
+function chamarCaseAttributesPOST() {
 
   // Entities URL
-  const url = PropertiesService.getScriptProperties().getProperty('ENTITIES_URL');
+  const url = PropertiesService.getScriptProperties().getProperty('CASE_ATTRIBUTES_URL');
 
   // API_TOKEN
   const API_TOKEN = PropertiesService.getScriptProperties().getProperty('API_TOKEN');      

@@ -118,12 +118,12 @@
   }  
 
 
-  function chamarEntitiesGET() {
-    chamarControllerGet('ENTITIES');
+  function chamarCaseAttributesGET() {
+    chamarControllerGet('CASE_ATTRIBUTES');
   }
 
-  function chamarEntitiesPOST() {
-    chamarControllerPost('ENTITIES');
+  function chamarCaseAttributesPOST() {
+    chamarControllerPost('CASE_ATTRIBUTES');
   }    
 
 
@@ -143,14 +143,19 @@
     // Seleciona a div resposta apropriada 
     let idDiv;
     switch( nomeRecurso ) {
-      case "AUTHENTICATOR": idDiv = "div_authenticator";
-                            break;
-      case "ENTITIES":      idDiv = "div_entities";
-                            break;                            
-      case "QUEUE":         idDiv = "div_queue";
-                            break;  
+
+      case "AUTHENTICATOR":    idDiv = "div_authenticator";
+                               break;
+
+      case "CASE_ATTRIBUTES":  idDiv = "div_case_attributes";
+                               break;                            
+
+      case "QUEUE":            idDiv = "div_queue";
+                               break;  
+
       default:  console.log( "Client chamarControllerGet - PARÂMETRO INVÁLIDO" );                          
                 return false;
+
     }
 
     return idDiv;
