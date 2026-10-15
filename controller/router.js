@@ -60,6 +60,8 @@ function chamarAuthenticatorGET() {
   try {
 
     let response = UrlFetchApp.fetch( urlCompleta ); // O método padrão é GET
+
+    let retornoController = {};
     
     // Erro HTTP
     if( !response ) {
@@ -76,15 +78,23 @@ function chamarAuthenticatorGET() {
       let corpoResposta = response.getContentText();
 
       if(corpoResposta) {        
+
         let dadosRecebidos = JSON.parse(corpoResposta);  
-        console.log( `Controller GET Ok - ${dadosRecebidos.mensagem}` );
-        return `Controller GET Ok - ${dadosRecebidos.mensagem}`;
+
+        retornoController.messagem = `Controller GET Ok - ${dadosRecebidos.mensagem}`;
+        retornoController.recurso  = dadosRecebidos.recurso;
+
+        console.log( retornoController.messagem );
+        return retornoController;
       }
 
     // Códigos HTTP 400, 500, etc
     } else {
-      console.log( `Controller GET Error - ${codigoStatus}` );  
-      return `Controller GET Error - ${codigoStatus}`;
+        retornoController.messagem =  `Controller GET Error - ${codigoStatus}`;
+        retornoController.recurso  = "";
+
+        console.log( retornoController.messagem );
+        return retornoController;
     }
 
   } catch( error ) {
@@ -182,6 +192,8 @@ function chamarCaseAttributesGET() {
   try {
 
     let response = UrlFetchApp.fetch( urlCompleta ); // O método padrão é GET
+
+    let retornoController = {};
     
     // Erro HTTP
     if( !response ) {
@@ -198,15 +210,25 @@ function chamarCaseAttributesGET() {
       let corpoResposta = response.getContentText();
 
       if(corpoResposta) {        
+
         let dadosRecebidos = JSON.parse(corpoResposta);  
-        console.log( `Controller GET Ok - ${dadosRecebidos.mensagem}` );
-        return `Controller GET Ok - ${dadosRecebidos.mensagem}`;
+
+        retornoController.messagem = `Controller GET Ok - ${dadosRecebidos.mensagem}`;
+        retornoController.recurso  = dadosRecebidos.recurso;
+
+        console.log( retornoController.messagem );
+        return retornoController;
       }
 
     // Códigos HTTP 400, 500, etc
     } else {
-      console.log( `Controller GET Error - ${codigoStatus}` );  
-      return `Controller GET Error - ${codigoStatus}`;
+
+        retornoController.messagem =  `Controller GET Error - ${codigoStatus}`;
+        retornoController.recurso  = "";
+
+        console.log( retornoController.messagem );
+        return retornoController;
+
     }
 
   } catch( error ) {
@@ -304,6 +326,8 @@ function chamarQueueGET() {
   try {
 
     let response = UrlFetchApp.fetch( urlCompleta ); // O método padrão é GET
+
+    let retornoController = {};    
     
     // Erro HTTP
     if( !response ) {
@@ -320,15 +344,23 @@ function chamarQueueGET() {
       let corpoResposta = response.getContentText();
 
       if(corpoResposta) {        
+
         let dadosRecebidos = JSON.parse(corpoResposta);  
-        console.log( `Controller GET Ok - ${dadosRecebidos.mensagem}` );
-        return `Controller GET Ok - ${dadosRecebidos.mensagem}`;
+
+        retornoController.messagem = `Controller GET Ok - ${dadosRecebidos.mensagem}`;
+        retornoController.recurso  = dadosRecebidos.recurso;
+
+        console.log( retornoController.messagem );
+        return retornoController;
       }
 
     // Códigos HTTP 400, 500, etc
     } else {
-      console.log( `Controller GET Error - ${codigoStatus}` );  
-      return `Controller GET Error - ${codigoStatus}`;
+        retornoController.messagem =  `Controller GET Error - ${codigoStatus}`;
+        retornoController.recurso  = "";
+
+        console.log( retornoController.messagem );
+        return retornoController;
     }
 
   } catch( error ) {

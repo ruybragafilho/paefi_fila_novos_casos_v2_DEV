@@ -49,7 +49,8 @@ function doGet(e) {
     return responderJson({
       status: "success",
       mensagem: retorno,      
-      nomeRecurso: nomeRecurso
+      nomeRecurso: nomeRecurso,
+      recurso: recurso
     });
 
 

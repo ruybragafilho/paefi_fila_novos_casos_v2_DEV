@@ -49,7 +49,8 @@ function doGet(e) {
       return responderJson({
         status: "success",
         mensagem: "Queue GET Ok" ,      
-        nomeRecurso: nomeRecurso
+        nomeRecurso: nomeRecurso,
+        recurso: ""
       });
 
     } else {
@@ -58,7 +59,8 @@ function doGet(e) {
       return responderJson({
         status: "error",
         mensagem: "Queue GET Error - API Authentication Fail!" ,      
-        nomeRecurso: nomeRecurso
+        nomeRecurso: nomeRecurso,
+        recurso: ""
       });      
 
     } // Fim do if-else

@@ -45,11 +45,16 @@ function doGet(e) {
     // a mensagem apropriada
     if( ApiAuthentication.authenticateController( controllerToken ) ) {
 
+    let array_Attributes = new ArraysOfAttributeTables();
+
+    let tabelas = array_Attributes.readTables();
+
       // Fluxo feliz - Responde a requisição    
       return responderJson({
         status: "success",
         mensagem: "Case Attributes GET Ok" ,      
-        nomeRecurso: nomeRecurso
+        nomeRecurso: nomeRecurso,
+        recurso: tabelas
       });
 
     } else {
@@ -58,7 +63,8 @@ function doGet(e) {
       return responderJson({
         status: "error",
         mensagem: "Case Attributes GET Error - API Authentication Fail!" ,      
-        nomeRecurso: nomeRecurso
+        nomeRecurso: nomeRecurso,
+        recurso: ""
       });      
 
     } // Fim do if-else
