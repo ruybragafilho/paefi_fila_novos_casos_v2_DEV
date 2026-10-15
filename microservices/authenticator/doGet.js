@@ -68,7 +68,9 @@ function doGet(e) {
   } catch (error) {
 
     return responderJson( { status: "erro", 
-                            mensagem: "Erro ao processar requisição: " + error.message } );
+                            mensagem: "Erro ao processar requisição: " + error.message,      
+                            nomeRecurso: "",
+                            recurso: "" } );
 
   } // Fim do try-catch
 
