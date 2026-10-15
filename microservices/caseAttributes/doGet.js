@@ -45,9 +45,9 @@ function doGet(e) {
     // a mensagem apropriada
     if( ApiAuthentication.authenticateController( controllerToken ) ) {
 
-    let array_Attributes = new ArraysOfAttributeTables();
-
-    let tabelas = array_Attributes.readTables();
+      // Obter tabelas
+      let array_Attributes = new ArraysOfAttributeTables();
+      let tabelas = array_Attributes.readTables();
 
       // Fluxo feliz - Responde a requisição    
       return responderJson({

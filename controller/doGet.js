@@ -48,16 +48,18 @@ function doGet(e) {
     // Fluxo feliz - Responde a requisição    
     return responderJson({
       status: "success",
-      mensagem: retorno,      
+      mensagem: retorno.mensagem,      
       nomeRecurso: nomeRecurso,
-      recurso: recurso
+      recurso: retorno.recurso
     });
 
 
   } catch (error) {
 
     return responderJson( { status: "erro", 
-                            mensagem: "Erro ao processar requisição: " + error.message } );
+                            mensagem: "Erro ao processar requisição: " + error.message,      
+                            nomeRecurso: "",
+                            recurso: "" } );
 
   } // Fim do try-catch
 
