@@ -42,7 +42,7 @@ function doGet(e) {
 
     // Realiza a autenticação do controller e em seguida o retorna
     // a mensagem apropriada
-    if( ApiAuthentication.authenticateController( controllerToken ) ) {
+    if( !ApiAuthentication.authenticateController( controllerToken ) ) {
 
       // Fluxo feliz - Responde a requisição    
       return responderJson({
