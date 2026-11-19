@@ -13,7 +13,7 @@ class ApiAuthentication {
      */
     static authenticateController( controllerToken ) {
       
-      if( controllerToken === "" ) {
+      if( controllerToken === "" ) {        
         return false;
       }
 
@@ -21,7 +21,8 @@ class ApiAuthentication {
 
         // Obtém o API token desse microserviço das proprerties do script
         const API_TOKEN = PropertiesService.getScriptProperties().getProperty('API_TOKEN');
-  
+
+
         // Proteção caso o API token desse microserviço não esteja salvo nas proprerties do script
         if( !API_TOKEN ) {
           throw( new Error( "autenticarController - Erro interno: Token de validação não configurado no microserviço."  ) ); 
@@ -41,6 +42,23 @@ class ApiAuthentication {
 
 
 } // Fim da definição da classe ApiAuthentication
+
+
+
+
+function testeAuthenticateController() {
+
+  const token = "495d410f8cc729d2d92ed2b9dac95c618cae131c";
+
+  let resultado = ApiAuthentication.authenticateController( token );
+
+  if( resultado ) {
+    console.log( "TOKENS Iguais" );
+  } else {
+    console.log( "TOKENS Diferentes" );
+  }
+
+}
 
 
 
