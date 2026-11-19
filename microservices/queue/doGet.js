@@ -49,8 +49,7 @@ function doGet(e) {
       return responderJson({
         status: "success",
         mensagem: "Queue GET Ok" ,      
-        nomeRecurso: nomeRecurso,
-        recurso: ""
+        nomeRecurso: nomeRecurso
       });
 
     } else {
@@ -59,8 +58,7 @@ function doGet(e) {
       return responderJson({
         status: "error",
         mensagem: "Queue GET Error - API Authentication Fail!" ,      
-        nomeRecurso: nomeRecurso,
-        recurso: ""
+        nomeRecurso: nomeRecurso
       });      
 
     } // Fim do if-else
@@ -69,9 +67,7 @@ function doGet(e) {
   } catch (error) {
 
     return responderJson( { status: "erro", 
-                            mensagem: "Erro ao processar requisição: " + error.message,      
-                            nomeRecurso: "",
-                            recurso: "" } );
+                            mensagem: "Erro ao processar requisição: " + error.message } );
 
   } // Fim do try-catch
 
