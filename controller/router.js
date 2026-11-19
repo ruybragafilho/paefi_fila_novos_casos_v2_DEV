@@ -16,11 +16,11 @@ function serviceRoute( nomeRecurso ) {
       case "AUTHENTICATOR_POST": retorno = chamarAuthenticatorPOST();
                                  break;                              
   
-      case "CASE_ATTRIBUTES_GET": retorno = chamarCaseAttributesGET();
-                                  break;
+      case "ENTITIES_GET": retorno = chamarEntitiesGET();
+                           break;
       
-      case "CASE_ATTRIBUTES_POST": retorno = chamarCaseAttributesPOST();
-                                   break;                              
+      case "ENTITIES_POST": retorno = chamarEntitiesPOST();
+                            break;                              
                                  
       case "QUEUE_GET": retorno = chamarQueueGET();
                         break;
@@ -60,8 +60,6 @@ function chamarAuthenticatorGET() {
   try {
 
     let response = UrlFetchApp.fetch( urlCompleta ); // O método padrão é GET
-
-    let retornoController = {};
     
     // Erro HTTP
     if( !response ) {
@@ -78,23 +76,15 @@ function chamarAuthenticatorGET() {
       let corpoResposta = response.getContentText();
 
       if(corpoResposta) {        
-
         let dadosRecebidos = JSON.parse(corpoResposta);  
-
-        retornoController.messagem = `Controller GET Ok - ${dadosRecebidos.mensagem}`;
-        retornoController.recurso  = dadosRecebidos.recurso;
-
-        console.log( retornoController.messagem );
-        return retornoController;
+        console.log( `Controller GET Ok - ${dadosRecebidos.mensagem}` );
+        return `Controller GET Ok - ${dadosRecebidos.mensagem}`;
       }
 
     // Códigos HTTP 400, 500, etc
     } else {
-        retornoController.messagem =  `Controller GET Error - ${codigoStatus}`;
-        retornoController.recurso  = "";
-
-        console.log( retornoController.messagem );
-        return retornoController;
+      console.log( `Controller GET Error - ${codigoStatus}` );  
+      return `Controller GET Error - ${codigoStatus}`;
     }
 
   } catch( error ) {
@@ -174,10 +164,10 @@ function chamarAuthenticatorPOST() {
     
 
 
-function chamarCaseAttributesGET() {
+function chamarEntitiesGET() {
 
   // Entities URL
-  const url = PropertiesService.getScriptProperties().getProperty('CASE_ATTRIBUTES_URL');
+  const url = PropertiesService.getScriptProperties().getProperty('ENTITIES_URL');
   
   // API_TOKEN
   const API_TOKEN = PropertiesService.getScriptProperties().getProperty('API_TOKEN');    
@@ -192,8 +182,6 @@ function chamarCaseAttributesGET() {
   try {
 
     let response = UrlFetchApp.fetch( urlCompleta ); // O método padrão é GET
-
-    let retornoController = {};
     
     // Erro HTTP
     if( !response ) {
@@ -210,25 +198,15 @@ function chamarCaseAttributesGET() {
       let corpoResposta = response.getContentText();
 
       if(corpoResposta) {        
-
         let dadosRecebidos = JSON.parse(corpoResposta);  
-
-        retornoController.messagem = `Controller GET Ok - ${dadosRecebidos.mensagem}`;
-        retornoController.recurso  = dadosRecebidos.recurso;
-
-        console.log( retornoController.messagem );
-        return retornoController;
+        console.log( `Controller GET Ok - ${dadosRecebidos.mensagem}` );
+        return `Controller GET Ok - ${dadosRecebidos.mensagem}`;
       }
 
     // Códigos HTTP 400, 500, etc
     } else {
-
-        retornoController.messagem =  `Controller GET Error - ${codigoStatus}`;
-        retornoController.recurso  = "";
-
-        console.log( retornoController.messagem );
-        return retornoController;
-
+      console.log( `Controller GET Error - ${codigoStatus}` );  
+      return `Controller GET Error - ${codigoStatus}`;
     }
 
   } catch( error ) {
@@ -243,10 +221,10 @@ function chamarCaseAttributesGET() {
     
 
     
-function chamarCaseAttributesPOST() {
+function chamarEntitiesPOST() {
 
   // Entities URL
-  const url = PropertiesService.getScriptProperties().getProperty('CASE_ATTRIBUTES_URL');
+  const url = PropertiesService.getScriptProperties().getProperty('ENTITIES_URL');
 
   // API_TOKEN
   const API_TOKEN = PropertiesService.getScriptProperties().getProperty('API_TOKEN');      
@@ -326,8 +304,6 @@ function chamarQueueGET() {
   try {
 
     let response = UrlFetchApp.fetch( urlCompleta ); // O método padrão é GET
-
-    let retornoController = {};    
     
     // Erro HTTP
     if( !response ) {
@@ -344,23 +320,15 @@ function chamarQueueGET() {
       let corpoResposta = response.getContentText();
 
       if(corpoResposta) {        
-
         let dadosRecebidos = JSON.parse(corpoResposta);  
-
-        retornoController.messagem = `Controller GET Ok - ${dadosRecebidos.mensagem}`;
-        retornoController.recurso  = dadosRecebidos.recurso;
-
-        console.log( retornoController.messagem );
-        return retornoController;
+        console.log( `Controller GET Ok - ${dadosRecebidos.mensagem}` );
+        return `Controller GET Ok - ${dadosRecebidos.mensagem}`;
       }
 
     // Códigos HTTP 400, 500, etc
     } else {
-        retornoController.messagem =  `Controller GET Error - ${codigoStatus}`;
-        retornoController.recurso  = "";
-
-        console.log( retornoController.messagem );
-        return retornoController;
+      console.log( `Controller GET Error - ${codigoStatus}` );  
+      return `Controller GET Error - ${codigoStatus}`;
     }
 
   } catch( error ) {
