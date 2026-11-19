@@ -167,7 +167,8 @@ function chamarAuthenticatorPOST() {
 function chamarEntitiesGET() {
 
   // Entities URL
-  const url = PropertiesService.getScriptProperties().getProperty('ENTITIES_URL');
+  //const url = PropertiesService.getScriptProperties().getProperty('ENTITIES_URL');
+  const url = PropertiesService.getScriptProperties().getProperty('CASE_ATTRIBUTES_URL');
   
   // API_TOKEN
   const API_TOKEN = PropertiesService.getScriptProperties().getProperty('API_TOKEN');    
@@ -224,7 +225,8 @@ function chamarEntitiesGET() {
 function chamarEntitiesPOST() {
 
   // Entities URL
-  const url = PropertiesService.getScriptProperties().getProperty('ENTITIES_URL');
+  //const url = PropertiesService.getScriptProperties().getProperty('ENTITIES_URL');
+  const url = PropertiesService.getScriptProperties().getProperty('CASE_ATTRIBUTES_URL');
 
   // API_TOKEN
   const API_TOKEN = PropertiesService.getScriptProperties().getProperty('API_TOKEN');      
