@@ -47,7 +47,7 @@ function doPost(e) {
       // Fluxo feliz - Responde a requisição    
       return responderJson({
         status: "success",
-        mensagem: "Case Attributes POST Ok" ,      
+        mensagem: "Entities POST Ok" ,      
         nomeRecurso: nomeRecurso
       });
 
@@ -56,7 +56,7 @@ function doPost(e) {
       // Erro - Controller TOKEN inválido
       return responderJson({
         status: "error",
-        mensagem: "Case Attributes POST Error - API Authentication Fail!" ,      
+        mensagem: "Entities POST Error - API Authentication Fail!" ,      
         nomeRecurso: nomeRecurso
       });      
 

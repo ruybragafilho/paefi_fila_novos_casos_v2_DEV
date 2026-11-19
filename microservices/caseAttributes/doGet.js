@@ -45,16 +45,11 @@ function doGet(e) {
     // a mensagem apropriada
     if( ApiAuthentication.authenticateController( controllerToken ) ) {
 
-      // Obter tabelas
-      let array_Attributes = new ArraysOfAttributeTables();
-      let tabelas = array_Attributes.readTables();
-
       // Fluxo feliz - Responde a requisição    
       return responderJson({
         status: "success",
-        mensagem: "Case Attributes GET Ok" ,      
-        nomeRecurso: nomeRecurso,
-        recurso: tabelas
+        mensagem: "Entities GET Ok" ,      
+        nomeRecurso: nomeRecurso
       });
 
     } else {
@@ -62,9 +57,8 @@ function doGet(e) {
       // Erro - Controller TOKEN inválido
       return responderJson({
         status: "error",
-        mensagem: "Case Attributes GET Error - API Authentication Fail!" ,      
-        nomeRecurso: nomeRecurso,
-        recurso: ""
+        mensagem: "Entities GET Error - API Authentication Fail!" ,      
+        nomeRecurso: nomeRecurso
       });      
 
     } // Fim do if-else
@@ -73,9 +67,7 @@ function doGet(e) {
   } catch (error) {
 
     return responderJson( { status: "erro", 
-                            mensagem: "Erro ao processar requisição: " + error.message,      
-                            nomeRecurso: "",
-                            recurso: "" } );
+                            mensagem: "Erro ao processar requisição: " + error.message } );
 
   } // Fim do try-catch
 
